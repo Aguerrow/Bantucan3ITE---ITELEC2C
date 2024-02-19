@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import ShopData from "./ShopData";
 
@@ -18,19 +18,19 @@ const Main = () => {
     },
     {
       title: "UNISEX DRAGON SWEATER",
-      price: 75,
+      price: 80,
       imageUrl: "/img/sweater.png",
       altText: "UNISEX DRAGON SWEATER",
     },
     {
       title: "UNISEX FALCON SWEATER",
-      price: 75,
+      price: 80,
       imageUrl: "/img/fsweater.png",
       altText: "UNISEX FALCON SWEATER",
     },
     {
       title: "UNISEX STARLINK SWEATER",
-      price: 75,
+      price: 80,
       imageUrl: "/img/ssweater.png",
       altText: "UNISEX STARLINK SWEATER",
     },
@@ -107,8 +107,8 @@ const Main = () => {
       <img src="/img/cover.png" alt="Cover" className="cover-image" />
       <h1 className="Trending">TRENDING</h1>
       <div className="Main-content">
-        {stickerPacks.map((pack) => (
-          <ShopData key={pack.title} {...pack} />
+        {stickerPacks.map((pack, index) => (
+          <ShopData key={pack.title} {...pack} isSoldOut={pack.price <= 50} />
         ))}
       </div>
     </div>
